@@ -1,0 +1,49 @@
+# Linux kernel config fragment for EPA on QEMU x86_64.
+# Applied on top of the x86_64_defconfig base via
+# BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES.
+
+# Core filesystems EPA relies on for hardware/firmware/system facts
+CONFIG_PROC_FS=y
+CONFIG_SYSFS=y
+CONFIG_DEVTMPFS=y
+CONFIG_DEVTMPFS_MOUNT=y
+CONFIG_TMPFS=y
+
+# ACPI / DMI / SMBIOS (firmware module)
+CONFIG_ACPI=y
+CONFIG_DMIID=y
+CONFIG_FW_CFG_SYSFS=y
+
+# EFI / Secure Boot visibility (used with OVMF)
+CONFIG_EFI=y
+CONFIG_EFI_VARS=y
+CONFIG_EFIVAR_FS=y
+
+# TPM (firmware module - presence/version)
+CONFIG_TCG_TPM=y
+CONFIG_TCG_TIS=y
+CONFIG_TCG_TIS_CORE=y
+
+# virtio for QEMU (disk/net/pci enumeration targets)
+CONFIG_VIRTIO=y
+CONFIG_VIRTIO_PCI=y
+CONFIG_VIRTIO_BLK=y
+CONFIG_VIRTIO_NET=y
+CONFIG_VIRTIO_CONSOLE=y
+
+# NVMe (hardware disk module)
+CONFIG_BLK_DEV_NVME=y
+
+# USB (hardware usb module) - UHCI/EHCI covers QEMU's default controllers
+CONFIG_USB=y
+CONFIG_USB_UHCI_HCD=y
+CONFIG_USB_EHCI_HCD=y
+CONFIG_USB_XHCI_HCD=y
+
+# Serial console for QEMU -nographic / smoke tests
+CONFIG_SERIAL_8250=y
+CONFIG_SERIAL_8250_CONSOLE=y
+
+# No graphics/sound - keep boot fast and image small
+# CONFIG_DRM is not set
+# CONFIG_SOUND is not set

@@ -1,0 +1,6 @@
+config BR2_PACKAGE_EPA
+	bool "epa"
+	default y
+	help
+	  EPA (Excanear Portable Appliance) core init/shell/modules binary.
+	  Runs as PID 1 on the target - there is no other init system.

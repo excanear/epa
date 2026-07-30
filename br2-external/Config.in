@@ -1,0 +1,1 @@
+source "$BR2_EXTERNAL_EPA_PATH/package/epa/Config.in"
