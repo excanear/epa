@@ -1,7 +1,5 @@
 <div align="center">
 
-# EM DESENVOLVIMENTO
-
 # Excanear Portable Appliance (EPA)
 
 **A portable, CLI-only embedded Linux appliance for hardware, firmware, and system
